@@ -2,7 +2,7 @@
 
 BASE_HREF = /$(OUTPUT)/
 # Replace this with your GitHub username
-GITHUB_USER = Megha_Singh21
+GITHUB_USER = Megha-Singh21
 GITHUB_REPO = https://github.com/$(GITHUB_USER)/$(OUTPUT)
 BUILD_VERSION := $(shell grep 'version:' pubspec.yaml | awk '{print $$2}')
 
