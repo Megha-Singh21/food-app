@@ -35,132 +35,188 @@ class _CustomMealState extends State<CustomMeal> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Lunch', style: TextStyle(fontSize: 25, color: Colors.red.shade900, fontWeight: FontWeight.bold),),
-                SizedBox(height: 20,),
-                Text('Meal Type', style: TextStyle(fontSize: 18, color: Colors.black54, fontWeight: FontWeight.w700),),
-                Row(
-                  children: [
-                    RadioMenuButton(value: 'veg', groupValue: 'mealtype', onChanged: (value){
-                      setState(() {
-                        value = 'veg';
-                      });
-                    },
-                        child: Text('Veg')
+                Card(
+                  color: Colors.white,
+                  elevation: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          height: 180,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(image: AssetImage('assets/images/lunch-banner.jpeg'), fit: BoxFit.fill),
+                            borderRadius: BorderRadius.circular(11),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text('Lunch', style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 20,),
+                        Text('Meal Type', style: TextStyle(fontSize: 18, color: Colors.black54, fontWeight: FontWeight.w700),),
+                        Row(
+                          children: [
+                            RadioMenuButton(value: 'veg', groupValue: 'mealtype', onChanged: (value){
+                              setState(() {
+                                value = 'veg';
+                              });
+                            },
+                                child: Text('Veg')
+                            ),
+                            RadioMenuButton(value: 'nonveg', groupValue: 'mealtype', onChanged: (value){
+                              setState(() {
+                                value = 'nonveg';
+                              });
+                            },
+                                child: Text('Non Veg')
+                            )
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            RadioMenuButton(value: 'biryani', groupValue: 'mealtype', onChanged: (value){
+                              setState(() {
+                                value = 'biryani';
+                              });
+                            },
+                                child: Text('Biryani')
+                            ),
+                            RadioMenuButton(value: 'eggmeal', groupValue: 'mealtype', onChanged: (value){
+                              setState(() {
+                                value = 'eggmeal';
+                              });
+                            },
+                                child: Text('Egg Meal')
+                            )
+                          ],
+                        ),
+                        SizedBox(height: 18,),
+                        Text('Lunch Timing', style: TextStyle(fontSize: 18, color: Colors.black54, fontWeight: FontWeight.w700),),
+                        Text('Re-schedule before 12 noon', style: TextStyle(color: Colors.grey.shade600),),
+                        Row(
+                          children: [
+                            Text('${_time.format(context)}', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800),),
+                            SizedBox(width: 11,),
+                            ElevatedButton(
+                                onPressed: (){
+                                  selectTime(context);
+                                },
+                                child: Text('Set Time'))
+                          ],
+                        ),
+                        SizedBox(height: 18,),
+                        Center(
+                          child: ElevatedButton(
+                            onPressed: (){},
+                            child: Text('Save', style: TextStyle(color: Colors.white, fontSize: 15,),),
+                            style: ButtonStyle(
+                                backgroundColor: WidgetStateProperty.all(Colors.red.shade900)
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    RadioMenuButton(value: 'nonveg', groupValue: 'mealtype', onChanged: (value){
-                      setState(() {
-                        value = 'nonveg';
-                      });
-                    },
-                        child: Text('Non Veg')
-                    )
-                  ],
-                ),
-                Row(
-                  children: [
-                    RadioMenuButton(value: 'biryani', groupValue: 'mealtype', onChanged: (value){
-                      setState(() {
-                        value = 'biryani';
-                      });
-                    },
-                        child: Text('Biryani')
-                    ),
-                    RadioMenuButton(value: 'eggmeal', groupValue: 'mealtype', onChanged: (value){
-                      setState(() {
-                        value = 'eggmeal';
-                      });
-                    },
-                        child: Text('Egg Meal')
-                    )
-                  ],
-                ),
-                SizedBox(height: 18,),
-                Text('Lunch Timing', style: TextStyle(fontSize: 18, color: Colors.black54, fontWeight: FontWeight.w700),),
-                Text('Re-schedule before 12 noon', style: TextStyle(color: Colors.grey.shade600),),
-                Row(
-                  children: [
-                    Text('${_time.format(context)}', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800),),
-                    SizedBox(width: 11,),
-                    ElevatedButton(
-                        onPressed: (){
-                          selectTime(context);
-                        },
-                        child: Text('Set Time'))
-                  ],
-                ),
-                SizedBox(height: 18,),
-                Center(
-                  child: ElevatedButton(
-                      onPressed: (){},
-                      child: Text('Save', style: TextStyle(color: Colors.white, fontSize: 15,),),
-                  style: ButtonStyle(
-                      backgroundColor: WidgetStateProperty.all(Colors.red.shade900)
                   ),
-                  ),
                 ),
-        
-                SizedBox(height: 21,),
-        
-                Text('Dinner', style: TextStyle(fontSize: 25, color: Colors.red.shade900, fontWeight: FontWeight.bold),),
-                SizedBox(height: 20,),
-                Text('Meal Type', style: TextStyle(fontSize: 18, color: Colors.black54, fontWeight: FontWeight.w700),),
-                Row(
-                  children: [
-                    RadioMenuButton(value: 'veg', groupValue: 'mealtype', onChanged: (value){
-                      setState(() {
-                        value = 'veg';
-                      });
-                    },
-                        child: Text('Veg')
-                    ),
-                    RadioMenuButton(value: 'nonveg', groupValue: 'mealtype', onChanged: (value){
-                      setState(() {
-                        value = 'nonveg';
-                      });
-                    },
-                        child: Text('Non Veg')
-                    )
-                  ],
-                ),
-                Row(
-                  children: [
-                    RadioMenuButton(value: 'biryani', groupValue: 'mealtype', onChanged: (value){
-                      setState(() {
-                        value = 'biryani';
-                      });
-                    },
-                        child: Text('Biryani')
-                    ),
-                    RadioMenuButton(value: 'eggmeal', groupValue: 'mealtype', onChanged: (value){
-                      setState(() {
-                        value = 'eggmeal';
-                      });
-                    },
-                        child: Text('Egg Meal')
-                    )
-                  ],
-                ),
-                SizedBox(height: 18,),
-                Text('Dinner Timing', style: TextStyle(fontSize: 18, color: Colors.black54, fontWeight: FontWeight.w700),),
-                Text('Re-schedule before 8pm', style: TextStyle(color: Colors.grey.shade600),),
-                Row(
-                  children: [
-                    Text('${_time.format(context)}', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800),),
-                    SizedBox(width: 11,),
-                    ElevatedButton(
-                        onPressed: (){
-                          selectTime(context);
-                        },
-                        child: Text('Set Time'))
-                  ],
-                ),
-                SizedBox(height: 18,),
-                Center(
-                  child: ElevatedButton(
-                    onPressed: (){},
-                    child: Text('Save', style: TextStyle(color: Colors.white, fontSize: 15,),),
-                    style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all(Colors.red.shade900)
+                SizedBox(height: 11,),
+                Card(
+                  color: Colors.white,
+                  elevation: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          height: 180,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(image: AssetImage('assets/images/dinner-banner.jpg'), fit: BoxFit.fill),
+                            borderRadius: BorderRadius.circular(11),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text('Dinner', style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 20,),
+                        Text('Meal Type', style: TextStyle(fontSize: 18, color: Colors.black54, fontWeight: FontWeight.w700),),
+                        Row(
+                          children: [
+                            RadioMenuButton(value: 'veg', groupValue: 'mealtype', onChanged: (value){
+                              setState(() {
+                                value = 'veg';
+                              });
+                            },
+                                child: Text('Veg')
+                            ),
+                            RadioMenuButton(value: 'nonveg', groupValue: 'mealtype', onChanged: (value){
+                              setState(() {
+                                value = 'nonveg';
+                              });
+                            },
+                                child: Text('Non Veg')
+                            )
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            RadioMenuButton(value: 'biryani', groupValue: 'mealtype', onChanged: (value){
+                              setState(() {
+                                value = 'biryani';
+                              });
+                            },
+                                child: Text('Biryani')
+                            ),
+                            RadioMenuButton(value: 'eggmeal', groupValue: 'mealtype', onChanged: (value){
+                              setState(() {
+                                value = 'eggmeal';
+                              });
+                            },
+                                child: Text('Egg Meal')
+                            )
+                          ],
+                        ),
+                        SizedBox(height: 18,),
+                        Text('Dinner Timing', style: TextStyle(fontSize: 18, color: Colors.black54, fontWeight: FontWeight.w700),),
+                        Text('Re-schedule before 8pm', style: TextStyle(color: Colors.grey.shade600),),
+                        Row(
+                          children: [
+                            Text('${_time.format(context)}', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800),),
+                            SizedBox(width: 11,),
+                            ElevatedButton(
+                                onPressed: (){
+                                  selectTime(context);
+                                },
+                                child: Text('Set Time'))
+                          ],
+                        ),
+                        SizedBox(height: 18,),
+                        Center(
+                          child: ElevatedButton(
+                            onPressed: (){},
+                            child: Text('Save', style: TextStyle(color: Colors.white, fontSize: 15,),),
+                            style: ButtonStyle(
+                                backgroundColor: WidgetStateProperty.all(Colors.red.shade900)
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

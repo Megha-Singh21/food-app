@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: 'BeVietnamPro-Regular',
+        fontFamily: 'Roboto-Regular',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple.shade900),
         useMaterial3: true,
       ),
